@@ -1,10 +1,39 @@
-// The following line loads the standalone build of Vue instead of the runtime-only build,
-// so you don't have to do: import Vue from 'vue/dist/vue'
-// This is done with the browser options. For the config, see package.json
 import Vue from 'vue'
-import App from './App.vue'
 
-new Vue({ // eslint-disable-line no-new
-  el: '#app',
-  render: (h) => h(App)
-})
+import component_edit from './components/edit.vue'
+import component_list from './components/list.vue'
+import component_login from './components/login.vue'
+
+// Mock workflow through screens.
+$(function() {
+  // Individual screen.
+  DisplayScreen(component_login, {
+    OK: function() {
+      DisplayScreen(component_list, {
+        AddService: function() {
+          DisplayDialog(component_edit, {
+            OK: function() {
+              $("#dialog-container").html('');
+            }
+          })
+        }
+      })
+    }
+  });
+});
+
+function DisplayScreen(screen_component, method_overrides) {
+  $("#screen-container").html('<div id="screen"></div>');
+  const screen = new Vue($.extend({}, screen_component, {
+    methods: $.extend({}, screen_component.methods, method_overrides)
+  }));
+  screen.$mount('#screen');
+}
+
+function DisplayDialog(dialog_component, method_overrides) {
+  $("#dialog-container").html('<div class="modal"><div id="dialog"></div></div>');
+  const dialog = new Vue($.extend({}, dialog_component, {
+    methods: $.extend({}, dialog_component.methods, method_overrides)
+  }));
+  dialog.$mount('#dialog');
+}

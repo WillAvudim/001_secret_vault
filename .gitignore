@@ -5,3 +5,5 @@ dist/build.css
 dist/mock.js
 dist/mock.css
 npm-debug.log
+libs
+.vscode
