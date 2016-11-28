@@ -1,0 +1,38 @@
+//- Pug supports layouts, see the sample express app.
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='style.css')
+
+    //- All from npms. 
+    script(src='libs/jquery.js')
+    script(src='libs/vue.js')
+    script(src='libs/dropbox-sdk.js')
+
+    //- Dropbox API
+    //- https://github.com/dropbox/dropbox-sdk-js
+    //- http://dropbox.github.io/dropbox-sdk-js/
+    //- script(src='https://www.dropbox.com/static/api/dropbox-datastores-1.2-latest.js')
+
+    //-https://github.com/lodash/lodash
+    script(src='lodash.min.js')
+
+    // App's modules.
+    script(src='lz-string.min.js')
+    script(src='forge.min.js')
+    script(src='encryption.js')
+    script(src='renderer_register.js')
+
+    //- All statically rendered vue templates, require renderer_register.js for registration.
+    script(src='gens/edit.js')
+    script(src='gens/list.js')
+    script(src='gens/login.js')
+
+    //- The app. 
+    script(src='index.js')
+  body
+    //- h1= title
+    //- p Welcome to #{title}
+    #screen-container
+    #dialog-container
