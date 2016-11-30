@@ -10,6 +10,14 @@ const fse = bluebird.promisifyAll(require('fs-extra'));  // https://www.npmjs.co
 const path = require('path');
 const pug = require('pug');
 
+
+// 1st - promise-based pug-to-html conversion for mock.html
+// 2nd - introduce settings in mock.html
+// 3rd - consider bootstrap UI library + learn CSS and make everything nice, it's time
+// DO: design the global screen w/ settings (do nothing if in a dialog) (pug + jquery)
+// DO: both mock and main app should use the global screen
+
+
 // ------------------------------------------------------------
 // Prepare everything for mocks.
 fse.ensureDirAsync('libs').then(() => Promise.all([

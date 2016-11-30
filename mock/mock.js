@@ -3,6 +3,7 @@ import Vue from 'vue'
 import component_edit from './components/edit.vue'
 import component_list from './components/list.vue'
 import component_login from './components/login.vue'
+import component_settings from './components/settings.vue'
 
 // Mock workflow through screens.
 $(function() {
@@ -20,6 +21,8 @@ $(function() {
       })
     }
   });
+
+//  DisplayDialog(component_settings, {});
 });
 
 function DisplayScreen(screen_component, method_overrides) {

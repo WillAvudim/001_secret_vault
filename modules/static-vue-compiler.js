@@ -64,7 +64,7 @@ function CompileVueComponents(path_to_vue_components, path_to_output_modules) {
         const register_render_code = `
           RegisterRender(
             "${component_name}",
-            function() { ${renderers.render} }, 
+            function() { ${renderers.render} },
             [ ${static_fns} ]
           );`;
         const target_file = path_to_output_modules + '/' + component_name + '.js';
